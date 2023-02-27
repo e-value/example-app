@@ -17,7 +17,9 @@ class TweetsSeeder extends Seeder
      */
     public function run(): void
     {
-        Tweet::factory()->count(10)->create()->each(fn($tweet) =>
+        Tweet::factory()->count(10)->create(
+            ['user_id' => 1]
+        )->each(fn($tweet) =>
             Image::factory()->count(4)->create()->each(fn($image) =>
                 $tweet->images()->attach($image->id)
         ));
