@@ -17,6 +17,7 @@ class CreateController extends Controller
             $request->tweet(),
             $request->images(),
         );
+        
         return redirect()->route('tweet.index');
     }
 }
