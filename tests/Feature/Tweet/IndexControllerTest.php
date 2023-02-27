@@ -16,7 +16,7 @@ class IndexControllerTest extends TestCase
      * @test
      * 
      */
-    public function get_tweets_テスト()
+    public function test_ツイート一覧()
     {
         Tweet::factory()->create();
         $response = $this->get('/tweet');
