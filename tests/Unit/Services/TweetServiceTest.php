@@ -5,16 +5,15 @@ namespace Tests\Unit\Services;
 use Tests\TestCase;
 // use PHPUnit\Framework\TestCase;
 use App\Services\TweetService;
-use Illuminate\Foundation\RefreshDatabase;
 
 use App\Models\User;
 use App\Models\Tweet;
-use Illuminate\Foundation\Testing\RefreshDatabase as TestingRefreshDatabase;
+use Illuminate\Foundation\Testing\RefreshDatabase as RefreshDatabase;
 use Mockery;
 
 class TweetServiceTest extends TestCase
 {
-    use TestingRefreshDatabase;
+    use RefreshDatabase;
     /**
      * 
      * @test
