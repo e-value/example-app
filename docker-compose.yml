@@ -54,8 +54,6 @@ services:
     # 追加
     mysql.test:
         image: 'mysql/mysql-server:8.0'
-        ports:
-            - '${FORWARD_DB_PORT:-3306}:3306'
         environment:
             MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
             MYSQL_ROOT_HOST: '%'
@@ -133,25 +131,8 @@ services:
         environment:
             PMA_HOST: mysql
             MYSQL_ROOT_PASSWORD: "${DB_PASSWORD}"
-        links:
-            - mysql
         networks:
             - sail
-
-    # # 追加
-    # phpmyadmin.test:
-    #     image: phpmyadmin/phpmyadmin
-    #     container_name: sail_phpmyadmin-test
-    #     restart: unless-stopped
-    #     ports:
-    #         - '8089:80'
-    #     environment:
-    #         PMA_HOST: mysql.test
-    #         MYSQL_ROOT_PASSWORD: "${DB_PASSWORD}"
-    #     networks:
-    #         - sail
-    #     links:
-    #         - mysql.test
 networks:
     sail:
         driver: bridge
