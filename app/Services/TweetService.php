@@ -16,7 +16,7 @@ class TweetService
 
     public function __construct(ImageManagerInterface $imageManager)
     {
-        $this->imageManager;
+        $this->imageManager = $imageManager;
     }
 
     public function getTweets()
