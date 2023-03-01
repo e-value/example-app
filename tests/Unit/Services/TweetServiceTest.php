@@ -11,6 +11,7 @@ use App\Models\User;
 use App\Models\Tweet;
 use Illuminate\Foundation\Testing\RefreshDatabase as TestingRefreshDatabase;
 use Mockery;
+use App\Modules\ImageUpload\ImageManagerInterface;
 
 class TweetServiceTest extends TestCase
 {
@@ -28,7 +29,8 @@ class TweetServiceTest extends TestCase
         // $tweet = Tweet::factory()->create();
         // print_r($tweet->toArray());
 
-        $tweetService = new TweetService();
+        $imageManager = Mockery::mock(ImageManagerInterface::class);
+        $tweetService = new TweetService($imageManager);
 
         $mock = Mockery::mock('alias:App\Models\Tweet');
         $mock->shouldReceive('where->first')->andReturn((object)[
